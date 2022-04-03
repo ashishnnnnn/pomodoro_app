@@ -51,6 +51,7 @@
   overflow-y: scroll;
   text-overflow: ellipsis;
   flex-grow: 1;
+  align-self: flex-end;
 }
 
 .todo-text::-webkit-scrollbar {

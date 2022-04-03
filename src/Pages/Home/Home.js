@@ -51,7 +51,7 @@ export const Home = () => {
           ) : (
             user_data.map((ele) => (
               <div key={ele.id}>
-                <div className="todo-item flex pad-0-5 ali-ce">
+                <div className="todo-item flex pad-0-5 ">
                   {ele.completed ? (
                     <div
                       onClick={() => {
