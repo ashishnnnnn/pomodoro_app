@@ -7,14 +7,14 @@ import { useGetLocalData } from "../../Hooks/useGetLocalData";
 
 export const Home = () => {
   useGetLocalData();
-  const { user_data, setUser_Data } = useUserTodo();
-  const [show_modal, setShow_modal] = useState(false);
-  const [curr_modal_todo, setCurr_modal_todo] = useState({});
+  const { user_data, setUserData } = useUserTodo();
+  const [show_modal, setShowModal] = useState(false);
+  const [curr_modal_todo, setCurrModalTodo] = useState({});
   const toggle_modal = () => {
-    setShow_modal((pre_val) => !pre_val);
+    setShowModal((pre_val) => !pre_val);
   };
   const reset_modal = () => {
-    setCurr_modal_todo({});
+    setCurrModalTodo({});
   };
   return (
     <div className="container pad-t-5 flex-column">
@@ -55,7 +55,7 @@ export const Home = () => {
                   {ele.completed ? (
                     <div
                       onClick={() => {
-                        setUser_Data({
+                        setUserData({
                           type: "TOGGLE_STATUS",
                           paylod: ele,
                         });
@@ -67,7 +67,7 @@ export const Home = () => {
                   ) : (
                     <div
                       onClick={() => {
-                        setUser_Data({
+                        setUserData({
                           type: "TOGGLE_STATUS",
                           paylod: ele,
                         });
@@ -88,13 +88,13 @@ export const Home = () => {
                     <i
                       onClick={() => {
                         toggle_modal();
-                        setCurr_modal_todo(ele);
+                        setCurrModalTodo(ele);
                       }}
                       className="fas fa-edit"
                     ></i>
                     <i
                       onClick={() => {
-                        setUser_Data({
+                        setUserData({
                           type: "DELETE",
                           paylod: ele,
                         });

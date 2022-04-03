@@ -16,7 +16,7 @@
 
 .todo-header {
   padding: 0 5rem;
-  /* line-height: 1.2; */
+  line-height: 1.2;
   align-items: center;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .todo-item {
-  height: 60px;
+  height: 80px;
   gap: 1rem;
   padding: 1rem;
 }
@@ -50,10 +50,17 @@
   margin-right: auto;
   overflow-y: scroll;
   text-overflow: ellipsis;
+  flex-grow: 1;
 }
 
 .todo-text::-webkit-scrollbar {
-  display: none;
+  width: 10px;
+  background: var(--light-dark-color);
+}
+
+.todo-text::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: var(--theme-color);
 }
 
 .todo-btn {
@@ -123,6 +130,10 @@
 @media only screen and (max-width: 650px) {
   .todo-header {
     padding: 0 1rem;
+  }
+
+  .todo-item {
+    height: 100px;
   }
   .todo-container {
     padding: 0 1.5rem;

@@ -1,19 +1,19 @@
 import { useState } from "react";
 import { useUserTodo } from "../../Context/useUserTodo";
 export const Modal = ({ todo, toggle_modal, reset_modal }) => {
-  const { setUser_Data } = useUserTodo();
-  const [curr_todo, setCurr_todo] = useState(todo ? todo : {});
+  const { setUserData } = useUserTodo();
+  const [curr_todo, setCurrTodo] = useState(todo ? todo : {});
   const handleChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
-    setCurr_todo((pre_todo) => ({ ...pre_todo, [name]: value }));
+    setCurrTodo((pre_todo) => ({ ...pre_todo, [name]: value }));
   };
   const handleSubmit = (e) => {
     e.preventDefault();
     if (todo.id) {
-      setUser_Data({ type: "EDIT", paylod: curr_todo });
+      setUserData({ type: "EDIT", paylod: curr_todo });
     } else {
-      setUser_Data({ type: "ADD", paylod: curr_todo });
+      setUserData({ type: "ADD", paylod: curr_todo });
     }
     toggle_modal();
     reset_modal();
