@@ -11,9 +11,21 @@ export const Modal = ({ todo, toggle_modal, reset_modal }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (todo.id) {
-      setUserData({ type: "EDIT", paylod: curr_todo });
+      setUserData({
+        type: "EDIT",
+        paylod: {
+          ...curr_todo,
+          remaining_time: curr_todo.time + ":00",
+        },
+      });
     } else {
-      setUserData({ type: "ADD", paylod: curr_todo });
+      setUserData({
+        type: "ADD",
+        paylod: {
+          ...curr_todo,
+          remaining_time: curr_todo.time + ":00",
+        },
+      });
     }
     toggle_modal();
     reset_modal();
@@ -22,7 +34,13 @@ export const Modal = ({ todo, toggle_modal, reset_modal }) => {
     <div className="pop_up">
       <div className="pop_up_background"></div>
       <div className="pop_up_input fnt-2 pad-1-5">
-        <div onClick={toggle_modal} className="cross fnt-3">
+        <div
+          onClick={() => {
+            toggle_modal();
+            reset_modal();
+          }}
+          className="cross fnt-3"
+        >
           &times;
         </div>
         <form onSubmit={handleSubmit}>
@@ -55,7 +73,10 @@ export const Modal = ({ todo, toggle_modal, reset_modal }) => {
               Add
             </button>
             <button
-              onClick={toggle_modal}
+              onClick={() => {
+                toggle_modal();
+                reset_modal();
+              }}
               className="btn btn-secondary fnt-1-2"
             >
               Cancel

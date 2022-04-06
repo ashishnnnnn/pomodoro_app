@@ -1,0 +1,19 @@
+.remaining_time {
+  color: var(--theme-color);
+  font-size: 3em;
+}
+
+.total_time {
+  color: var(--theme-color);
+  font-size: 2em;
+}
+
+@media only screen and (max-width: 750px) {
+  .remaining_time {
+    font-size: 2em;
+  }
+
+  .total_time {
+    font-size: 1.5em;
+  }
+}
