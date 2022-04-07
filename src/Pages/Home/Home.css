@@ -52,6 +52,11 @@
   text-overflow: ellipsis;
   flex-grow: 1;
   align-self: flex-end;
+  cursor: pointer;
+}
+
+.todo-text:hover {
+  text-decoration: underline;
 }
 
 .todo-text::-webkit-scrollbar {

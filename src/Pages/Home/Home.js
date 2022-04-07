@@ -4,6 +4,7 @@ import { useUserTodo } from "../../Context/useUserTodo";
 import { no_of_pending_task } from "../../Utils/no_of_pending_task";
 import { Modal } from "../../Components";
 import { useGetLocalData } from "../../Hooks/useGetLocalData";
+import { Link } from "react-router-dom";
 
 export const Home = () => {
   useGetLocalData();
@@ -16,6 +17,7 @@ export const Home = () => {
   const reset_modal = () => {
     setCurrModalTodo({});
   };
+
   return (
     <div className="container pad-t-5 flex-column">
       <div className="header">
@@ -76,13 +78,18 @@ export const Home = () => {
                     ></div>
                   )}
                   <div className="todo-text">
-                    {ele.completed ? (
-                      <p>
-                        <s>{ele.title}</s>
-                      </p>
-                    ) : (
-                      <p>{ele.title}</p>
-                    )}
+                    <Link
+                      to={ele.completed ? "/" : "/timer"}
+                      state={{ task: ele }}
+                    >
+                      {ele.completed ? (
+                        <p>
+                          <s>{ele.title}</s>
+                        </p>
+                      ) : (
+                        <p>{ele.title}</p>
+                      )}
+                    </Link>
                   </div>
                   <div className="todo-btn flex">
                     <i

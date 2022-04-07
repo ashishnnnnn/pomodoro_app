@@ -1,4 +1,6 @@
 import { v4 as uuid } from "uuid";
+import { get_curr_date } from "../Utils/get_curr_date";
+import { get_subtracted_time } from "../Utils/get_subtracted_time";
 
 export function UserTodoReducer(state, action) {
   const action_type = action.type;
@@ -6,7 +8,12 @@ export function UserTodoReducer(state, action) {
     case "ADD":
       const new_todo_after_add = [
         ...state,
-        { id: uuid(), completed: false, ...action.paylod },
+        {
+          id: uuid(),
+          completed: false,
+          created_at: get_curr_date(),
+          ...action.paylod,
+        },
       ];
       localStorage.setItem("my_todos", JSON.stringify(new_todo_after_add));
       return new_todo_after_add;
@@ -40,6 +47,27 @@ export function UserTodoReducer(state, action) {
         return local_todo;
       }
       return state;
+
+    case "DECREASE_TIME":
+      const new_tod_after_decrease = state.map((item) =>
+        item.id === action.paylod
+          ? {
+              ...item,
+              remaining_time: get_subtracted_time(item.remaining_time),
+            }
+          : item
+      );
+      localStorage.setItem("my_todos", JSON.stringify(new_tod_after_decrease));
+      return new_tod_after_decrease;
+
+    case "RESET_TIME":
+      const new_tod_after_reset = state.map((item) =>
+        item.id === action.paylod
+          ? { ...item, remaining_time: item.time + ":00" }
+          : item
+      );
+      localStorage.setItem("my_todos", JSON.stringify(new_tod_after_reset));
+      return new_tod_after_reset;
     default:
       return state;
   }
