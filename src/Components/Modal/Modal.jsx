@@ -62,6 +62,7 @@ export const Modal = ({ todo, toggle_modal, reset_modal }) => {
           ></textarea>
           <input
             name="time"
+            type="number"
             className="input pad-1 mar-t-1-5 fnt-1-5"
             placeholder="Add Time"
             value={curr_todo.time || ""}
