@@ -133,7 +133,21 @@
   margin-right: auto;
 }
 
-@media only screen and (max-width: 650px) {
+.logout-btn {
+  position: absolute;
+  top: 5.2rem;
+  right: 5.2rem;
+  width: fit-content;
+  padding: 0.5rem;
+  height: 3rem;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.932);
+  color: var(--theme-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 750px) {
   .todo-header {
     padding: 0 1rem;
   }
@@ -147,5 +161,11 @@
 
   .pop_up_input {
     width: 20rem;
+  }
+
+  .logout-btn {
+    position: absolute;
+    top: 1.8rem;
+    right: 1.8rem;
   }
 }
