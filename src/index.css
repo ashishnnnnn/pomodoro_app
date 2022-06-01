@@ -675,3 +675,8 @@ button {
 .btn-secondary{
   border: 1px solid var(--theme-color);
 }
+
+.color-white{
+  color: rgba(255, 255, 255, 0.911);
+}
+

@@ -1,0 +1,68 @@
+.toast-message {
+  width: 85%;
+}
+.alert-container {
+  position: sticky;
+  min-width: 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: absolute;
+  top: 15rem;
+  right: 0;
+  list-style: none;
+}
+
+.alert-container.display-none {
+  display: none;
+}
+
+.alert {
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert-text {
+  width: 80%;
+}
+
+.alert-cross {
+  font-size: 3rem;
+  cursor: pointer;
+  margin-top: 0.2rem;
+  margin-right: 0.5rem;
+}
+
+.alert-success {
+  background-color: rgb(90, 214, 168);
+  color: rgb(18, 92, 66);
+}
+
+.alert-info {
+  background-color: rgb(124, 152, 212);
+  color: rgb(11, 47, 124);
+}
+
+.alert-dang {
+  background-color: rgb(206, 98, 98);
+  color: rgb(119, 25, 25);
+}
+
+.alert-warn {
+  background-color: rgb(235, 200, 151);
+  color: #90531a;
+}
+
+.display-none {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .alert-container {
+    max-width: 15rem;
+  }
+  .alert {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
